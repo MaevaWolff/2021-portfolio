@@ -40,9 +40,19 @@ const HeroContainer = styled.div`
   }
 `;
 
+const MyName = styled.div`
+  margin-bottom: 2em;
+`;
+
 const FlexContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  flex-direction: column;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export default function HomePage() {
@@ -55,12 +65,12 @@ export default function HomePage() {
 
       <HeroContainer>
         <FlexContainer>
-          <div>
+          <MyName>
             <p>Maëva WOLFF</p>
             <p>
               2000 - 2021 <HighlightSpan>ツ</HighlightSpan>
             </p>
-          </div>
+          </MyName>
           <h2>CREATIVE</h2>
         </FlexContainer>
         <h1>DEVELOPER</h1>
