@@ -1,9 +1,8 @@
 import Logo from "../assets/Logo";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import device from "../theme/device";
-
-import KatanaSearching from "../assets/katana-searching.png";
+import { works } from "../data/works";
 
 import GeometricForme from "../assets/svg/GeometricForme";
 
@@ -22,10 +21,13 @@ const HeroContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: flex-end;
-  /* justify-content: center; */
   flex-direction: column;
   height: 85vh;
   position: relative;
+
+  @media ${device.tablet} {
+    justify-content: center;
+  }
 
   h1 {
     font-size: 3rem;
@@ -62,10 +64,23 @@ const FlexContainer = styled.div`
   }
 `;
 
+const rotateAnimate = keyframes`
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotate(180deg);
+  }
+`;
+
 const ScrollContainer = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
+
+  svg {
+    animation: ${rotateAnimate} 6s infinite linear;
+  }
 
   p {
     top: 42%;
@@ -102,6 +117,7 @@ const SocialsContainer = styled.div`
 const SelectedWorks = styled.div`
   width: 100%;
   overflow-x: hidden;
+  margin-top: 4em;
 
   p {
     width: max-content;
@@ -121,6 +137,7 @@ const SelectedWorks = styled.div`
 const SelectedWorksContainer = styled.div`
   margin-top: 2em;
   display: grid;
+  grid-gap: 2em;
 
   p  {
     font-weight: lighter;
@@ -170,6 +187,15 @@ const Stack = styled.div`
 `;
 
 export default function HomePage() {
+  const renderWorks = works.map((work) => (
+    <WorkContainer key={work.id}>
+      <img src={require(`../assets/${work.image}`)} alt="works" />
+      <p>{work.subtitle}</p>
+      <h4>{work.name}</h4>
+      <Stack>{work.stack}</Stack>
+    </WorkContainer>
+  ));
+
   return (
     <div>
       <HeaderContainer>
@@ -200,22 +226,17 @@ export default function HomePage() {
         </SocialsContainer>
       </HeroContainer>
 
-      <SelectedWorks>
-        <p>
-          SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
-          SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
-          SELECTED WORKS / SELECTED WORKS
-        </p>
-      </SelectedWorks>
+      <>
+        <SelectedWorks>
+          <p>
+            SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
+            SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
+            SELECTED WORKS / SELECTED WORKS
+          </p>
+        </SelectedWorks>
 
-      <SelectedWorksContainer>
-        <WorkContainer>
-          <img src={KatanaSearching} alt="djqlkdjqsl" />
-          <p>REACT-MOVIE-SEARCH</p>
-          <h4>KATANA-SEARCHING</h4>
-          <Stack>REACTJS</Stack>
-        </WorkContainer>
-      </SelectedWorksContainer>
+        <SelectedWorksContainer>{renderWorks}</SelectedWorksContainer>
+      </>
     </div>
   );
 }
