@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import device from "../theme/device";
 
+import KatanaSearching from "../assets/katana-searching.png";
+
+import GeometricForme from "../assets/svg/GeometricForme";
+
 const HeaderContainer = styled.header`
   width: 100%;
   display: flex;
@@ -18,9 +22,10 @@ const HeroContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
-  height: 75vh;
+  height: 85vh;
+  position: relative;
 
   h1 {
     font-size: 3rem;
@@ -40,8 +45,10 @@ const HeroContainer = styled.div`
   }
 `;
 
-const MyName = styled.div`
+const MyNameContainer = styled.div`
+  margin-top: 8em;
   margin-bottom: 2em;
+  font-weight: light;
 `;
 
 const FlexContainer = styled.div`
@@ -55,6 +62,113 @@ const FlexContainer = styled.div`
   }
 `;
 
+const ScrollContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  p {
+    top: 42%;
+    left: 20%;
+    font-size: 0.75rem;
+    position: absolute;
+    font-weight: bold;
+  }
+`;
+
+const SocialsContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  a {
+    &:after {
+      display: block;
+      content: "";
+      margin-top: 0.25em;
+      width: inherit;
+      height: 1px;
+      background-color: ${({ theme }) => theme.colors.white};
+    }
+  }
+  a:not(:last-child) {
+    margin-bottom: 1.5em;
+  }
+`;
+
+const SelectedWorks = styled.div`
+  width: 100%;
+  overflow-x: hidden;
+
+  p {
+    width: max-content;
+
+    &:after,
+    &:before {
+      content: "";
+      display: block;
+      margin: 1em 0;
+      width: 100%;
+      height: 1px;
+      background-color: ${({ theme }) => theme.colors.white};
+    }
+  }
+`;
+
+const SelectedWorksContainer = styled.div`
+  margin-top: 2em;
+  display: grid;
+
+  p  {
+    font-weight: lighter;
+    margin-top: 1em;
+    font-size: 0.75rem;
+  }
+
+  h4 {
+    font-weight: bold;
+    margin-top: 0.25em;
+  }
+`;
+
+const WorkContainer = styled.div`
+  position: relative;
+
+  img {
+    width: 90%;
+  }
+`;
+
+const Stack = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6em;
+  height: 6em;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.black};
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: normal;
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
+`;
+
 export default function HomePage() {
   return (
     <div>
@@ -65,16 +179,43 @@ export default function HomePage() {
 
       <HeroContainer>
         <FlexContainer>
-          <MyName>
+          <MyNameContainer>
             <p>Maëva WOLFF</p>
             <p>
               2000 - 2021 <HighlightSpan>ツ</HighlightSpan>
             </p>
-          </MyName>
+          </MyNameContainer>
           <h2>CREATIVE</h2>
         </FlexContainer>
         <h1>DEVELOPER</h1>
+
+        <ScrollContainer>
+          <GeometricForme />
+          <p>SCROLL</p>
+        </ScrollContainer>
+
+        <SocialsContainer>
+          <a href="https://dribbble.com/maevawlf">dribbble</a>
+          <a href="https://github.com/MaevaWolff">github</a>
+        </SocialsContainer>
       </HeroContainer>
+
+      <SelectedWorks>
+        <p>
+          SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
+          SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
+          SELECTED WORKS / SELECTED WORKS
+        </p>
+      </SelectedWorks>
+
+      <SelectedWorksContainer>
+        <WorkContainer>
+          <img src={KatanaSearching} alt="djqlkdjqsl" />
+          <p>REACT-MOVIE-SEARCH</p>
+          <h4>KATANA-SEARCHING</h4>
+          <Stack>REACTJS</Stack>
+        </WorkContainer>
+      </SelectedWorksContainer>
     </div>
   );
 }
