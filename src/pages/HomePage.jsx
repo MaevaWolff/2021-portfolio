@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import Logo from "../assets/Logo";
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
@@ -187,9 +188,12 @@ const Stack = styled.div`
 `;
 
 export default function HomePage() {
+  const scrollRef = useRef(null);
+
   const renderWorks = works.map((work) => (
     <WorkContainer key={work.id}>
-      <img src={require(`../assets/${work.image}`)} alt="works" />
+      {console.log(work.image)}
+      <img src={work.image} alt="works" />
       <p>{work.subtitle}</p>
       <h4>{work.name}</h4>
       <Stack>{work.stack}</Stack>
@@ -203,15 +207,17 @@ export default function HomePage() {
         <Link to="/">about</Link>
       </HeaderContainer>
 
-      <HeroContainer>
-        <FlexContainer>
+      <HeroContainer ref={scrollRef} data-scroll-container>
+        <FlexContainer data-scroll-section>
           <MyNameContainer>
             <p>Maëva WOLFF</p>
             <p>
               2000 - 2021 <HighlightSpan>ツ</HighlightSpan>
             </p>
           </MyNameContainer>
-          <h2>CREATIVE</h2>
+          <h2 data-scroll data-scroll-speed={3} data-scroll-position="top">
+            CREATIVE
+          </h2>
         </FlexContainer>
         <h1>DEVELOPER</h1>
 
@@ -227,7 +233,7 @@ export default function HomePage() {
       </HeroContainer>
 
       <>
-        <SelectedWorks>
+        <SelectedWorks className="ref">
           <p>
             SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
             SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /

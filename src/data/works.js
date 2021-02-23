@@ -1,3 +1,5 @@
+import KatanaImg from "../assets/katana-searching.png";
+
 export const works = [
   {
     id: "0",
@@ -5,7 +7,7 @@ export const works = [
     name: "KATANA-SEARCHING",
     stack: "ReactJS",
     link: "/",
-    image: "katana-searching.png",
+    image: KatanaImg,
   },
   {
     id: "1",
@@ -13,6 +15,6 @@ export const works = [
     name: "KATANA",
     stack: "PHP",
     link: "/",
-    image: "katana-searching.png",
+    image: KatanaImg,
   },
 ];
