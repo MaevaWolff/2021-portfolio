@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import Logo from "../assets/Logo";
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
@@ -35,7 +34,11 @@ const HeroContainer = styled.div`
     font-weight: bold;
 
     @media ${device.tablet} {
-      font-size: 10rem;
+      font-size: 5rem;
+    }
+
+    @media ${device.laptop} {
+      font-size: 9.5rem;
     }
   }
 
@@ -43,7 +46,11 @@ const HeroContainer = styled.div`
     font-size: 2.5rem;
 
     @media ${device.tablet} {
-      font-size: 12.5rem;
+      font-size: 6rem;
+    }
+
+    @media ${device.laptop} {
+      font-size: 9rem;
     }
   }
 `;
@@ -51,7 +58,11 @@ const HeroContainer = styled.div`
 const MyNameContainer = styled.div`
   margin-top: 8em;
   margin-bottom: 2em;
-  font-weight: light;
+  font-weight: lighter;
+
+  @media ${device.tablet} {
+    margin: 0;
+  }
 `;
 
 const FlexContainer = styled.div`
@@ -59,7 +70,7 @@ const FlexContainer = styled.div`
   align-items: flex-end;
   flex-direction: column;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     flex-direction: row;
     align-items: center;
   }
@@ -139,6 +150,8 @@ const SelectedWorksContainer = styled.div`
   margin-top: 2em;
   display: grid;
   grid-gap: 2em;
+  grid-template-columns: repeat(1, auto);
+  grid-template-areas: "KATANA-SEARCHING" "KATANA" "PIZZA" "LINA";
 
   p  {
     font-weight: lighter;
@@ -150,10 +163,19 @@ const SelectedWorksContainer = styled.div`
     font-weight: bold;
     margin-top: 0.25em;
   }
+
+  @media ${device.laptop} {
+    grid-gap: 5em;
+    grid-template-columns: repeat(2, auto);
+    grid-template-areas: "KATANA-SEARCHING KATANA" "LINA PIZZA";
+  }
 `;
 
-const WorkContainer = styled.div`
+const WorkContainer = styled.div<{ gridArea: string }>`
   position: relative;
+  width: fit-content;
+  height: fit-content;
+  grid-area: ${({ gridArea }) => gridArea && `${gridArea}`};
 
   img {
     width: 90%;
@@ -174,7 +196,6 @@ const Stack = styled.div`
   position: absolute;
   top: 50%;
   right: 0;
-
   clip-path: polygon(
     30% 0%,
     70% 0%,
@@ -188,11 +209,8 @@ const Stack = styled.div`
 `;
 
 export default function HomePage() {
-  const scrollRef = useRef(null);
-
   const renderWorks = works.map((work) => (
-    <WorkContainer key={work.id}>
-      {console.log(work.image)}
+    <WorkContainer key={work.id} gridArea={`${work.name}`}>
       <img src={work.image} alt="works" />
       <p>{work.subtitle}</p>
       <h4>{work.name}</h4>
@@ -207,17 +225,15 @@ export default function HomePage() {
         <Link to="/">about</Link>
       </HeaderContainer>
 
-      <HeroContainer ref={scrollRef} data-scroll-container>
-        <FlexContainer data-scroll-section>
+      <HeroContainer>
+        <FlexContainer>
           <MyNameContainer>
             <p>Maëva WOLFF</p>
             <p>
               2000 - 2021 <HighlightSpan>ツ</HighlightSpan>
             </p>
           </MyNameContainer>
-          <h2 data-scroll data-scroll-speed={3} data-scroll-position="top">
-            CREATIVE
-          </h2>
+          <h2>CREATIVE</h2>
         </FlexContainer>
         <h1>DEVELOPER</h1>
 
