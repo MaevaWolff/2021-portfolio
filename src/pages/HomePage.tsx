@@ -13,10 +13,6 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
 `;
 
-const HighlightSpan = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
 const HeroContainer = styled.div`
   width: 100%;
   display: flex;
@@ -59,21 +55,24 @@ const MyNameContainer = styled.div`
   margin-top: 8em;
   margin-bottom: 2em;
   font-weight: lighter;
+  text-align: end;
 
   @media ${device.tablet} {
-    margin: 0;
+    margin-top: 0;
   }
+`;
+
+const EditionPortfolio = styled.p`
+  margin-top: 0.5em;
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 0.5rem;
+  letter-spacing: 2px;
 `;
 
 const FlexContainer = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-
-  @media ${device.laptop} {
-    flex-direction: row;
-    align-items: center;
-  }
 `;
 
 const rotateAnimate = keyframes`
@@ -226,16 +225,14 @@ export default function HomePage() {
       </HeaderContainer>
 
       <HeroContainer>
+        <MyNameContainer>
+          <p>Maëva WOLFF</p>
+          <EditionPortfolio>EDITION 2021 ツ</EditionPortfolio>
+        </MyNameContainer>
         <FlexContainer>
-          <MyNameContainer>
-            <p>Maëva WOLFF</p>
-            <p>
-              2000 - 2021 <HighlightSpan>ツ</HighlightSpan>
-            </p>
-          </MyNameContainer>
           <h2>CREATIVE</h2>
+          <h1>DEVELOPER</h1>
         </FlexContainer>
-        <h1>DEVELOPER</h1>
 
         <ScrollContainer>
           <GeometricForme />
