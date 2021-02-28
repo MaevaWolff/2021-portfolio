@@ -4,6 +4,7 @@ import App from "./App";
 import { GlobalStyle } from "./theme/globalStyle";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
+import { AnimateSharedLayout } from "framer-motion";
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -14,6 +15,7 @@ ReactDOM.render(
       <App />
     </ThemeProvider>
   </React.StrictMode>,
+
   document.getElementById("root")
 );
 

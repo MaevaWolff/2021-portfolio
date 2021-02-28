@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import device from "../theme/device";
 import { works } from "../data/works";
+import { motion } from "framer-motion";
 
 import GeometricForme from "../assets/svg/GeometricForme";
 
@@ -210,10 +211,18 @@ const Stack = styled.div`
 export default function HomePage() {
   const renderWorks = works.map((work) => (
     <WorkContainer key={work.id} gridArea={`${work.name}`}>
-      <img src={work.image} alt="works" />
-      <p>{work.subtitle}</p>
-      <h4>{work.name}</h4>
-      <Stack>{work.stack}</Stack>
+      <Link to={`/work/${work.name.toLocaleLowerCase()}`}>
+        <motion.img
+          layoutId="work-image"
+          animate={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
+          src={work.image}
+          alt="works"
+        />
+        <p>{work.subtitle}</p>
+        <h4>{work.name}</h4>
+        <Stack>{work.stack}</Stack>
+      </Link>
     </WorkContainer>
   ));
 
