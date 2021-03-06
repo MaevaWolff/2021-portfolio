@@ -135,7 +135,7 @@ const SocialsContainer = styled.div`
 `;
 
 const AboutMeContainer = styled.div`
-  margin-top: 5em;
+  margin-top: 8em;
   width: 100%;
   display: flex;
   flex-direction: column;
