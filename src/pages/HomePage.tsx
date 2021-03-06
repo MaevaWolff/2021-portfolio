@@ -19,14 +19,15 @@ const HeaderContainer = styled.header`
 const HeroContainer = styled.div`
   width: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: column;
   height: 70vh;
   position: relative;
 
   @media ${device.tablet} {
-    justify-content: center;
     height: 90vh;
+    justify-content: center;
+    align-items: center;
   }
 
   h1 {
@@ -61,10 +62,11 @@ const MyNameContainer = styled.div`
   margin-top: 8em;
   margin-bottom: 2em;
   font-weight: lighter;
-  text-align: end;
+  text-align: start;
 
   @media ${device.tablet} {
     margin-top: 0;
+    text-align: center;
   }
 `;
 
@@ -80,8 +82,12 @@ const Company = styled.p`
 
 const FlexContainer = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   flex-direction: column;
+
+  @media ${device.tablet} {
+    align-items: center;
+  }
 `;
 
 const rotateAnimate = keyframes`
@@ -140,6 +146,12 @@ const AboutMeContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media ${device.tablet} {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
   img {
     width: 4em;
     height: initial;
@@ -149,13 +161,14 @@ const AboutMeContainer = styled.div`
     margin-top: 0.5em;
     max-width: 22em;
     font-size: 2.5rem;
+    line-height: 3rem;
   }
 `;
 
 const SelectedWorks = styled.div`
   width: 100%;
   overflow-x: hidden;
-  margin-top: 4em;
+  margin-top: 8em;
 
   p {
     width: max-content;
@@ -234,6 +247,17 @@ const Stack = styled.div`
   );
 `;
 
+const renderWorks = works.map((work) => (
+  <WorkContainer key={work.id} gridArea={`${work.name}`}>
+    <Link to={`/work/${work.name.toLowerCase()}`}>
+      <img src={work.image} alt="works" />
+      <p>{work.subtitle}</p>
+      <h4>{work.name}</h4>
+      <Stack>{work.stack}</Stack>
+    </Link>
+  </WorkContainer>
+));
+
 export default function HomePage() {
   let tl = gsap.timeline();
 
@@ -250,17 +274,6 @@ export default function HomePage() {
     animatedTitle();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const renderWorks = works.map((work) => (
-    <WorkContainer key={work.id} gridArea={`${work.name}`}>
-      <Link to={`/work/${work.name.toLowerCase()}`}>
-        <img src={work.image} alt="works" />
-        <p>{work.subtitle}</p>
-        <h4>{work.name}</h4>
-        <Stack>{work.stack}</Stack>
-      </Link>
-    </WorkContainer>
-  ));
 
   return (
     <div>
@@ -317,6 +330,10 @@ export default function HomePage() {
         </SelectedWorks>
 
         <SelectedWorksContainer>{renderWorks}</SelectedWorksContainer>
+      </>
+
+      <>
+        <p>say maeva.wolffpro@gmail.com</p>
       </>
     </div>
   );
