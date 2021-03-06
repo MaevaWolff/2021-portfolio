@@ -21,11 +21,12 @@ const HeroContainer = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  height: 90vh;
+  height: 80vh;
   position: relative;
 
   @media ${device.tablet} {
     justify-content: center;
+    height: 90vh;
   }
 
   h1 {
