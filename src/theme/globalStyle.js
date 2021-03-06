@@ -39,7 +39,7 @@ a{
   box-sizing: border-box;
 }
 
-body{
+body {
   width: 100%;
   min-height: 100vh;
   font-family: 'RedRose';
@@ -51,5 +51,6 @@ body{
   @media ${device.tablet}{
   padding: 1em 2em 0 2em;
   } 
+
 }
 `;

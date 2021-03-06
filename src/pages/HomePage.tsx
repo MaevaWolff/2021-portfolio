@@ -6,6 +6,7 @@ import { works } from "../data/works";
 import { motion } from "framer-motion";
 
 import GeometricForme from "../assets/svg/GeometricForme";
+import PikachuGif from "../assets/pikachu.gif";
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -19,7 +20,7 @@ const HeroContainer = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  height: 85vh;
+  height: 90vh;
   position: relative;
 
   @media ${device.tablet} {
@@ -41,6 +42,8 @@ const HeroContainer = styled.div`
 
   h2 {
     font-size: 2.5rem;
+    color: transparent;
+    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.white};
 
     @media ${device.tablet} {
       font-size: 6rem;
@@ -63,11 +66,14 @@ const MyNameContainer = styled.div`
   }
 `;
 
-const EditionPortfolio = styled.p`
-  margin-top: 0.5em;
+const Company = styled.p`
+  font-size: 0.75rem;
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 0.5rem;
   letter-spacing: 2px;
+
+  @media ${device.laptop} {
+    margin-top: -0.5em;
+  }
 `;
 
 const FlexContainer = styled.div`
@@ -123,6 +129,24 @@ const SocialsContainer = styled.div`
   }
   a:not(:last-child) {
     margin-bottom: 1.5em;
+  }
+`;
+
+const AboutMeContainer = styled.div`
+  margin-top: 5em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 4em;
+    height: fit-content;
+  }
+
+  p {
+    margin-top: 0.5em;
+    max-width: 22em;
+    font-size: 2.5rem;
   }
 `;
 
@@ -211,11 +235,10 @@ const Stack = styled.div`
 export default function HomePage() {
   const renderWorks = works.map((work) => (
     <WorkContainer key={work.id} gridArea={`${work.name}`}>
-      <Link to={`/work/${work.name.toLocaleLowerCase()}`}>
+      <Link to={`/work/${work.name.toLowerCase()}`}>
         <motion.img
           layoutId="work-image"
-          animate={{ scale: 1 }}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 0.9 }}
           src={work.image}
           alt="works"
         />
@@ -236,11 +259,11 @@ export default function HomePage() {
       <HeroContainer>
         <MyNameContainer>
           <p>Maëva WOLFF</p>
-          <EditionPortfolio>EDITION 2021 ツ</EditionPortfolio>
         </MyNameContainer>
         <FlexContainer>
           <h2>CREATIVE</h2>
           <h1>DEVELOPER</h1>
+          <Company>at @Mansa ツ</Company>
         </FlexContainer>
 
         <ScrollContainer>
@@ -253,6 +276,23 @@ export default function HomePage() {
           <a href="https://github.com/MaevaWolff">github</a>
         </SocialsContainer>
       </HeroContainer>
+
+      <AboutMeContainer>
+        <img
+          src={PikachuGif}
+          alt="This is an animated gif, but it does not move"
+        />
+
+        <p>
+          Bonjour ! My name is Maëva aka Maë.
+          <br />
+          I'm a french UI Designer and frontend developer at @Mansa based in
+          Paris.
+          <br />
+          At the same time, I'm currently a student at @HETIC in the Bachelor
+          Web.
+        </p>
+      </AboutMeContainer>
 
       <>
         <SelectedWorks className="ref">

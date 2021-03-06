@@ -2,9 +2,17 @@ import { works } from "../data/works";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const Image = styled(motion.img)`
+const Container = styled.div`
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Image = styled(motion.img)`
+  width: 70%;
   height: calc(100vh - 4em);
+  object-fit: contain;
 `;
 
 export default function WorkPage() {
@@ -15,8 +23,8 @@ export default function WorkPage() {
   )[0];
 
   return (
-    <div>
+    <Container>
       <Image layoutId="work-image" src={`${CURRENTLY_WORK.image}`} alt="jdks" />
-    </div>
+    </Container>
   );
 }
