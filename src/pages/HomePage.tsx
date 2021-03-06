@@ -141,7 +141,7 @@ const AboutMeContainer = styled.div`
 
   img {
     width: 4em;
-    height: fit-content;
+    height: initial;
   }
 
   p {
