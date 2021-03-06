@@ -21,7 +21,7 @@ const HeroContainer = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  height: 80vh;
+  height: 70vh;
   position: relative;
 
   @media ${device.tablet} {
