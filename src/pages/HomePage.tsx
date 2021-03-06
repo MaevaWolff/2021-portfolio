@@ -304,11 +304,11 @@ export default function HomePage() {
         <p>
           Bonjour ! My name is Maëva aka Maë.
           <br />
-          I'm a french UI Designer and frontend developer at @Mansa based in
-          Paris.
+          I'm a french UI Designer and frontend developer at{" "}
+          <a href="/">@Mansa</a> based in Paris.
           <br />
-          At the same time, I'm currently a student at @HETIC in the Bachelor
-          Web.
+          At the same time, I'm currently a student at <a href="/">@HETIC</a> in
+          the Bachelor Web.
         </p>
       </AboutMeContainer>
 
