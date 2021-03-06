@@ -1,6 +1,5 @@
 import { works } from "../data/works";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 const Container = styled.div`
   width: 100%;
@@ -9,7 +8,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Image = styled(motion.img)`
+const Image = styled.img`
   width: 70%;
   height: calc(100vh - 4em);
   object-fit: contain;
@@ -24,7 +23,7 @@ export default function WorkPage() {
 
   return (
     <Container>
-      <Image layoutId="work-image" src={`${CURRENTLY_WORK.image}`} alt="jdks" />
+      <Image src={`${CURRENTLY_WORK.image}`} alt="jdks" />
     </Container>
   );
 }

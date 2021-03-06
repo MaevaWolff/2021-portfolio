@@ -3,9 +3,8 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import device from "../theme/device";
 import { works } from "../data/works";
-import { motion } from "framer-motion";
 
-import GeometricForme from "../assets/svg/GeometricForme";
+import GeometricForm from "../assets/svg/GeometricForm";
 import PikachuGif from "../assets/pikachu.gif";
 
 const HeaderContainer = styled.header`
@@ -236,12 +235,7 @@ export default function HomePage() {
   const renderWorks = works.map((work) => (
     <WorkContainer key={work.id} gridArea={`${work.name}`}>
       <Link to={`/work/${work.name.toLowerCase()}`}>
-        <motion.img
-          layoutId="work-image"
-          whileHover={{ scale: 0.9 }}
-          src={work.image}
-          alt="works"
-        />
+        <img src={work.image} alt="works" />
         <p>{work.subtitle}</p>
         <h4>{work.name}</h4>
         <Stack>{work.stack}</Stack>
@@ -267,7 +261,7 @@ export default function HomePage() {
         </FlexContainer>
 
         <ScrollContainer>
-          <GeometricForme />
+          <GeometricForm />
           <p>SCROLL</p>
         </ScrollContainer>
 
