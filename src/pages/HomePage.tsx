@@ -126,17 +126,9 @@ const SocialsContainer = styled.div`
   align-items: flex-end;
 
   a {
-    &:after {
-      display: block;
-      content: "";
-      margin-top: 0.25em;
-      width: inherit;
-      height: 1px;
-      background-color: ${({ theme }) => theme.colors.white};
+    &:not(:last-child) {
+      margin-bottom: 1.5em;
     }
-  }
-  a:not(:last-child) {
-    margin-bottom: 1.5em;
   }
 `;
 
