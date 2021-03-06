@@ -3,6 +3,8 @@ import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import device from "../theme/device";
 import { works } from "../data/works";
+import gsap from "gsap";
+import { useEffect } from "react";
 
 import GeometricForm from "../assets/svg/GeometricForm";
 import PikachuGif from "../assets/pikachu.gif";
@@ -232,6 +234,22 @@ const Stack = styled.div`
 `;
 
 export default function HomePage() {
+  let tl = gsap.timeline();
+
+  const skewAnimation = { y: 100, ease: "power4.out", skewY: 7, opacity: 0 };
+
+  function animatedTitle() {
+    tl.from(".hero .hero__name", 2, skewAnimation, 0)
+      .from(".hero h2", 2, skewAnimation, 0.2)
+      .from(".hero h1", 2, skewAnimation, 0.4)
+      .from(".hero .hero__company", 2, skewAnimation, 0.6);
+  }
+
+  useEffect(() => {
+    animatedTitle();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const renderWorks = works.map((work) => (
     <WorkContainer key={work.id} gridArea={`${work.name}`}>
       <Link to={`/work/${work.name.toLowerCase()}`}>
@@ -250,14 +268,14 @@ export default function HomePage() {
         <Link to="/">about</Link>
       </HeaderContainer>
 
-      <HeroContainer>
+      <HeroContainer className="hero">
         <MyNameContainer>
-          <p>Maëva WOLFF</p>
+          <p className="hero__name">Maëva WOLFF</p>
         </MyNameContainer>
         <FlexContainer>
           <h2>CREATIVE</h2>
           <h1>DEVELOPER</h1>
-          <Company>at @Mansa ツ</Company>
+          <Company className="hero__company">at @Mansa ツ</Company>
         </FlexContainer>
 
         <ScrollContainer>
