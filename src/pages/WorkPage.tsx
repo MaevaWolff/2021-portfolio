@@ -1,30 +1,23 @@
 import { works } from "../data/works";
 import styled from "styled-components";
 
+import { FlexCenter } from "../styles/mixins";
+
 const Container = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  ${FlexCenter};
 `;
 
 const HeroContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  ${FlexCenter};
   text-align: center;
 `;
 
-const Image = styled.img`
-  object-fit: contain;
-  position: absolute;
-  opacity: 0.3;
-`;
-
 const WorkName = styled.h1`
-  position: absolute;
   font-size: 8rem;
   line-height: 6.5rem;
   font-weight: bold;
@@ -48,7 +41,6 @@ export default function WorkPage() {
   return (
     <Container>
       <HeroContainer>
-        <Image src={`${CURRENTLY_WORK.image}`} alt="jdks" />
         <WorkName>{renderWorkName()}</WorkName>
       </HeroContainer>
     </Container>

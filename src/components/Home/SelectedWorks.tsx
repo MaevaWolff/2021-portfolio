@@ -31,20 +31,6 @@ const SelectedWorksContainer = styled.div`
     margin-top: 0.25em;
   }
 
-  a {
-    // NOTE: remove link animation
-    position: initial;
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.white};
-    }
-
-    &:after {
-      display: none;
-      visibility: hidden;
-    }
-  }
-
   @media ${device.laptop} {
     grid-gap: 5em;
     justify-content: center;
