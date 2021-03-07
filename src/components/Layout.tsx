@@ -7,6 +7,7 @@ import { FlexCenter } from "../styles/mixins";
 // import components
 import Header from "./Header";
 
+// TODO: make layout with grid
 const LayoutContainer = styled.div<{ color?: string }>`
   min-height: 100vh;
   width: 100%;

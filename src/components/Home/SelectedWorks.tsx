@@ -44,10 +44,13 @@ const WorkContainer = styled.div<{ gridArea: string }>`
   width: fit-content;
   height: fit-content;
   grid-area: ${({ gridArea }) => gridArea && `${gridArea}`};
-  justify-self: center;
 
   img {
     width: 90%;
+  }
+
+  @media ${device.laptop} {
+    justify-self: center;
   }
 `;
 
