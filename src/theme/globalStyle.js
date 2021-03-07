@@ -81,4 +81,16 @@ transition: color .3s cubic-bezier(0.11, 0.7, 0, 1);
   }
   }
 }
+
+/* h3 {
+  font-weight: bold;
+  font-size: 3.25rem;
+  margin-bottom: 1em;
+  text-align: start;
+  width: 100%;
+
+  @media ${device.tablet}{
+    font-size: 10rem;
+  } 
+} */
 `;

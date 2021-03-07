@@ -157,30 +157,18 @@ const AboutMeContainer = styled.div`
   }
 `;
 
-const SelectedWorks = styled.div`
-  width: 100%;
-  overflow-x: hidden;
-  margin-top: 8em;
+const SelectedWorksWrapper = styled.div`
+  margin-top: 10em;
 
-  p {
-    width: max-content;
-
-    &:after,
-    &:before {
-      content: "";
-      display: block;
-      margin: 1em 0;
-      width: 100%;
-      height: 1px;
-      background-color: ${({ theme }) => theme.colors.white};
-    }
+  @media ${device.laptop} {
+    margin-top: 20em;
   }
 `;
 
 const SelectedWorksContainer = styled.div`
-  margin-top: 2em;
   display: grid;
   grid-gap: 2em;
+  margin-top: 2em;
   grid-template-columns: repeat(1, auto);
   grid-template-areas: "KATANA-SEARCHING" "KATANA" "PIZZA" "LINA";
 
@@ -211,6 +199,7 @@ const SelectedWorksContainer = styled.div`
 
   @media ${device.laptop} {
     grid-gap: 5em;
+    justify-content: center;
     grid-template-columns: repeat(2, auto);
     grid-template-areas: "KATANA-SEARCHING KATANA" "LINA PIZZA";
   }
@@ -221,6 +210,7 @@ const WorkContainer = styled.div<{ gridArea: string }>`
   width: fit-content;
   height: fit-content;
   grid-area: ${({ gridArea }) => gridArea && `${gridArea}`};
+  justify-self: center;
 
   img {
     width: 90%;
@@ -240,7 +230,7 @@ const Stack = styled.div`
   font-weight: normal;
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 0.5em;
   clip-path: polygon(
     30% 0%,
     70% 0%,
@@ -310,6 +300,12 @@ export default function HomePage() {
       </HeroContainer>
 
       <AboutMeContainer>
+        {/* <h3>
+          001/
+          <br />
+          ABOUT ME
+        </h3> */}
+
         <img
           src={PikachuGif}
           alt="This is an animated gif, but it does not move"
@@ -326,17 +322,15 @@ export default function HomePage() {
         </p>
       </AboutMeContainer>
 
-      <>
-        <SelectedWorks className="ref">
-          <p>
-            SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
-            SELECTED WORKS / SELECTED WORKS / SELECTED WORKS / SELECTED WORKS /
-            SELECTED WORKS / SELECTED WORKS
-          </p>
-        </SelectedWorks>
+      <SelectedWorksWrapper>
+        {/* <h3>
+          002/
+          <br />
+          SELECTED WORKS
+        </h3> */}
 
         <SelectedWorksContainer>{renderWorks}</SelectedWorksContainer>
-      </>
+      </SelectedWorksWrapper>
 
       <>
         <p>say maeva.wolffpro@gmail.com</p>
