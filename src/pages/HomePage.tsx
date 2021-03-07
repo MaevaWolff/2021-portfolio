@@ -2,10 +2,11 @@
 import Intro from "../components/Home/Intro";
 import AboutMe from "../components/Home/AboutMe";
 import SelectedWorks from "../components/Home/SelectedWorks";
+import Layout from "../components/Layout";
 
 export default function HomePage() {
   return (
-    <div>
+    <Layout>
       <Intro />
 
       <AboutMe />
@@ -15,6 +16,6 @@ export default function HomePage() {
       <>
         <p>say maeva.wolffpro@gmail.com</p>
       </>
-    </div>
+    </Layout>
   );
 }

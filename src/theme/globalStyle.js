@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import device from "./device";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -43,28 +42,8 @@ body {
   width: 100%;
   min-height: 100vh;
   font-family: 'RedRose';
-  background-color: ${(props) => props.theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.black};
   color: ${(props) => props.theme.colors.white};
   font-weight: lighter;
-  padding: 1em 1em 0 1em;
-
-  @media ${device.tablet}{
-  padding: 1em 2em 0 2em;
-  } 
 }
-
-
-
-
-/* h3 {
-  font-weight: bold;
-  font-size: 3.25rem;
-  margin-bottom: 1em;
-  text-align: start;
-  width: 100%;
-
-  @media ${device.tablet}{
-    font-size: 10rem;
-  } 
-} */
 `;

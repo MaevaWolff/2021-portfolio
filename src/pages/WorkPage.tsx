@@ -2,10 +2,12 @@ import { works } from "../data/works";
 import styled from "styled-components";
 
 import { FlexCenter } from "../styles/mixins";
+import Layout from "../components/Layout";
 
 const Container = styled.div`
   width: 100%;
   display: flex;
+  min-height: 100vh;
   ${FlexCenter};
 `;
 
@@ -39,10 +41,12 @@ export default function WorkPage() {
   }
 
   return (
-    <Container>
-      <HeroContainer>
-        <WorkName>{renderWorkName()}</WorkName>
-      </HeroContainer>
-    </Container>
+    <Layout color={CURRENTLY_WORK.color}>
+      <Container>
+        <HeroContainer>
+          <WorkName>{renderWorkName()}</WorkName>
+        </HeroContainer>
+      </Container>
+    </Layout>
   );
 }

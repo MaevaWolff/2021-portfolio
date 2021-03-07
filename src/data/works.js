@@ -11,6 +11,7 @@ export const works = [
     stack: "ReactJS",
     link: "/",
     image: KatanaSearchImg,
+    color: "rgb(248, 87, 46)",
   },
   {
     id: 1,
@@ -19,6 +20,7 @@ export const works = [
     stack: "PHP",
     link: "/",
     image: KatanaImg,
+    color: "mediumpurple",
   },
   {
     id: 2,
@@ -27,6 +29,7 @@ export const works = [
     stack: "DESIGN",
     link: "/",
     image: PizzaImg,
+    color: "rgb(248, 87, 46)",
   },
   {
     id: 3,
@@ -35,5 +38,6 @@ export const works = [
     stack: "ReactJS",
     link: "/",
     image: LinaImg,
+    color: "rgb(255, 172, 172)",
   },
 ];

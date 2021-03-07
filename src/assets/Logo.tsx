@@ -5,7 +5,13 @@ export default function Logo() {
   const themeContext = useContext(ThemeContext);
 
   return (
-    <svg width="29" height="28" viewBox="0 0 29 28" fill="none">
+    <svg
+      width="29"
+      height="28"
+      viewBox="0 0 29 28"
+      fill="none"
+      className="logo"
+    >
       <line
         x1="0.5"
         y1="2.18557e-08"
