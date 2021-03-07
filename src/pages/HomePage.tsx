@@ -195,6 +195,17 @@ const SelectedWorksContainer = styled.div`
     margin-top: 0.25em;
   }
 
+  a {
+    // NOTE: remove link animation
+    &:hover {
+      color: ${({ theme }) => theme.colors.white};
+    }
+
+    &:after {
+      visibility: hidden;
+    }
+  }
+
   @media ${device.laptop} {
     grid-gap: 5em;
     grid-template-columns: repeat(2, auto);
