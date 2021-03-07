@@ -1,5 +1,7 @@
-import { works } from "../data/works";
+import { useEffect } from "react";
 import styled from "styled-components";
+
+import { works } from "../data/works";
 
 import { FlexCenter } from "../styles/mixins";
 import Layout from "../components/Layout";
@@ -39,6 +41,11 @@ export default function WorkPage() {
     }
     return `${CURRENTLY_WORK.name}`;
   }
+
+  // NOTE: fix scroll top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Layout color={CURRENTLY_WORK.color}>
