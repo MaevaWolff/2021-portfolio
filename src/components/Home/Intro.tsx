@@ -126,13 +126,19 @@ const SocialsContainer = styled.div`
 export default function Intro() {
   let tl = gsap.timeline();
 
-  const skewAnimation = { y: 100, ease: "power4.out", skewY: 7, opacity: 0 };
+  const skewAnimation = {
+    y: 100,
+    ease: "power4.out",
+    skewY: 7,
+    opacity: 0,
+    duration: 2,
+  };
 
   function animatedTitle() {
-    tl.from(".hero .hero__name", 2, skewAnimation, 0)
-      .from(".hero h2", 2, skewAnimation, 0.2)
-      .from(".hero h1", 2, skewAnimation, 0.4)
-      .from(".hero .hero__company", 2, skewAnimation, 0.6);
+    tl.from(".hero .hero__name", skewAnimation, 0)
+      .from(".hero h2", skewAnimation, 0.2)
+      .from(".hero h1", skewAnimation, 0.4)
+      .from(".hero .hero__company", skewAnimation, 0.6);
   }
 
   useEffect(() => {
