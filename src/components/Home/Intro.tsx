@@ -4,6 +4,8 @@ import gsap from "gsap";
 import device from "../../theme/device";
 import GeometricForm from "../../assets/svg/GeometricForm";
 
+import { FlexCenter, HoverLink } from "../../styles/mixins";
+
 const HeroContainer = styled.div`
   width: 100%;
   display: flex;
@@ -14,8 +16,7 @@ const HeroContainer = styled.div`
 
   @media ${device.tablet} {
     height: 90vh;
-    justify-content: center;
-    align-items: center;
+    ${FlexCenter}
   }
 
   h1 {
@@ -114,6 +115,8 @@ const SocialsContainer = styled.div`
   align-items: flex-end;
 
   a {
+    ${HoverLink}
+
     &:not(:last-child) {
       margin-bottom: 1.5em;
     }

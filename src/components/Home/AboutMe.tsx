@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import device from "../../theme/device";
 
+import { FlexCenter } from "../../styles/mixins";
+
 import PikachuGif from "../../assets/pikachu.gif";
 
 const AboutMeContainer = styled.div`
@@ -10,8 +12,7 @@ const AboutMeContainer = styled.div`
   flex-direction: column;
 
   @media ${device.tablet} {
-    align-items: center;
-    justify-content: center;
+    ${FlexCenter}
     text-align: center;
   }
 

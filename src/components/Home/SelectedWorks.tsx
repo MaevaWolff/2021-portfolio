@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { works } from "../../data/works";
 import device from "../../theme/device";
 
+import { FlexCenter } from "../../styles/mixins";
+
 const SelectedWorksWrapper = styled.div`
   margin-top: 10em;
 
@@ -65,8 +67,7 @@ const WorkContainer = styled.div<{ gridArea: string }>`
 
 const Stack = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  ${FlexCenter}
   width: 6em;
   height: 6em;
   background-color: ${({ theme }) => theme.colors.primary};
