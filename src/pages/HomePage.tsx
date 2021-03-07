@@ -197,11 +197,14 @@ const SelectedWorksContainer = styled.div`
 
   a {
     // NOTE: remove link animation
+    position: initial;
+
     &:hover {
       color: ${({ theme }) => theme.colors.white};
     }
 
     &:after {
+      display: none;
       visibility: hidden;
     }
   }
