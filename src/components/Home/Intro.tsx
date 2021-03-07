@@ -132,6 +132,7 @@ export default function Intro() {
     skewY: 7,
     opacity: 0,
     duration: 2,
+    rotationX: 180,
   };
 
   function animatedTitle() {
