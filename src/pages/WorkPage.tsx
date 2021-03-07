@@ -8,10 +8,27 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+const HeroContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+
 const Image = styled.img`
-  width: 70%;
-  height: calc(100vh - 4em);
   object-fit: contain;
+  position: absolute;
+  opacity: 0.3;
+`;
+
+const WorkName = styled.h1`
+  position: absolute;
+  font-size: 8rem;
+  line-height: 6.5rem;
+  font-weight: bold;
+  max-width: 8em;
 `;
 
 export default function WorkPage() {
@@ -21,9 +38,19 @@ export default function WorkPage() {
     (el) => el.name.toLocaleLowerCase() === windowLocation
   )[0];
 
+  function renderWorkName() {
+    if (CURRENTLY_WORK.name.length < 7) {
+      return `${CURRENTLY_WORK.name} ${CURRENTLY_WORK.subtitle}`;
+    }
+    return `${CURRENTLY_WORK.name}`;
+  }
+
   return (
     <Container>
-      <Image src={`${CURRENTLY_WORK.image}`} alt="jdks" />
+      <HeroContainer>
+        <Image src={`${CURRENTLY_WORK.image}`} alt="jdks" />
+        <WorkName>{renderWorkName()}</WorkName>
+      </HeroContainer>
     </Container>
   );
 }
