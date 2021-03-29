@@ -3,7 +3,7 @@ import KatanaImg from "../assets/katana.png";
 import PizzaImg from "../assets/pizza.png";
 import LinaImg from "../assets/lina.png";
 
-export const works = [
+export default const works = [
   {
     id: 0,
     subtitle: "REACT-MOVIE-SEARCH",
